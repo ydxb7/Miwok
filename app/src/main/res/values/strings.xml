@@ -29,4 +29,8 @@
     <string name="category_family">Family Members</string>
 
     <string name="Numbers">Numbers</string>
+    <string name="Colors">Colors</string>
+    <string name="Family">Family</string>
+    <string name="Phrases">Phrases</string>
+
 </resources>
