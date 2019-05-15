@@ -14,10 +14,12 @@ import ai.tomorrow.miwok.Word;
 import java.io.File;
 import java.util.ArrayList;
 
-public class WordAdapter extends ArrayAdapter {
+public class WordAdapter extends ArrayAdapter<Word> {
+    private int myResource;
 
     public WordAdapter(Context context, int resource, ArrayList<Word> objects){
-        super(context, 0, objects);
+        super(context, resource, objects);
+        myResource = resource;
     }
 
     @Override
@@ -25,7 +27,7 @@ public class WordAdapter extends ArrayAdapter {
         View listItemView = convertView;
 
         if(listItemView == null) {
-            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
+            listItemView = LayoutInflater.from(getContext()).inflate(myResource, parent, false);
         }
 
         Word currentWordItem = (Word) getItem(position);
