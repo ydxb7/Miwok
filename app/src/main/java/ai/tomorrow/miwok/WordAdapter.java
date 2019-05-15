@@ -1,8 +1,6 @@
 package ai.tomorrow.miwok;
 
 import android.content.Context;
-import android.support.v7.view.menu.ListMenuItemView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,9 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import ai.tomorrow.miwok.Word;
 
-import java.io.File;
 import java.util.ArrayList;
 
 public class WordAdapter extends ArrayAdapter<Word> {
@@ -50,6 +46,11 @@ public class WordAdapter extends ArrayAdapter<Word> {
         else{
             iconView.setVisibility(View.GONE);
         }
+
+        if(currentWordItem.hasAudio()){
+            listItemView.setOnClickListener(new PlayerClickListener(currentWordItem.getAudioResourceId()));
+        }
+
 
         LinearLayout textContainer = (LinearLayout) listItemView.findViewById(R.id.text_container);
         textContainer.setBackgroundResource(mcolorCategory);
