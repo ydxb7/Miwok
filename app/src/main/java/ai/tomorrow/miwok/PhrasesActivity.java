@@ -25,7 +25,7 @@ public class PhrasesActivity extends AppCompatActivity {
         phrases.add(new Word("Let’s go.", "yoowutis"));
         phrases.add(new Word("Come here.", "ənni'nem"));
 
-        WordAdapter itemsAdapter = new WordAdapter(this, R.layout.list_item, phrases);
+        WordAdapter itemsAdapter = new WordAdapter(this, R.layout.list_item, phrases, R.color.category_phrases);
         ListView listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(itemsAdapter);
     }

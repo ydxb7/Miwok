@@ -1,19 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="@dimen/list_item_height"
+    android:orientation="horizontal"
+    android:background="@color/tan_background">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/miwok_text_view"
-        tools:text="lutti"/>
+    <ImageView
+        android:id="@+id/list_item_icon"
+        android:src="@mipmap/ic_launcher"
+        android:layout_width="@dimen/list_item_height"
+        android:layout_height="@dimen/list_item_height" />
 
-    <TextView
+    <LinearLayout
+        android:id="@+id/text_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/default_text_view"
-        tools:text="one"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="16dp">
+
+        <TextView
+            android:id="@+id/miwok_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:textColor="@android:color/white"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textStyle="bold"
+            tools:text="lutti" />
+
+        <TextView
+            android:id="@+id/default_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="top"
+            android:textColor="@android:color/white"
+            android:textAppearance="?android:textAppearanceMedium"
+            tools:text="one" />
+
+    </LinearLayout>
+
 </LinearLayout>
