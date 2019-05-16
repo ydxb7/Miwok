@@ -37,11 +37,25 @@ public class NumbersActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                releaseMediaPlayer();
                 mPlayer = MediaPlayer.create(NumbersActivity.this, numbers.get(position).getAudioResourceId());
                 mPlayer.start();
+                mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        releaseMediaPlayer();
+                    }
+                });
             }
         });
 
         Log.v("NumbersActivity", "index 2 element in numbers: " + numbers.get(2));
+    }
+
+    private void releaseMediaPlayer(){
+        if(mPlayer != null){
+            mPlayer.release();
+            mPlayer = null;
+        }
     }
 }
