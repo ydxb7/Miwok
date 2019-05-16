@@ -46,11 +46,9 @@ public class WordAdapter extends ArrayAdapter<Word> {
         else{
             iconView.setVisibility(View.GONE);
         }
-
-        if(currentWordItem.hasAudio()){
-            listItemView.setOnClickListener(new PlayerClickListener(currentWordItem.getAudioResourceId()));
-        }
-
+//        if(currentWordItem.hasAudio()){
+//            listItemView.setOnClickListener(new PlayerClickListener(currentWordItem.getAudioResourceId()));
+//        }
 
         LinearLayout textContainer = (LinearLayout) listItemView.findViewById(R.id.text_container);
         textContainer.setBackgroundResource(mcolorCategory);

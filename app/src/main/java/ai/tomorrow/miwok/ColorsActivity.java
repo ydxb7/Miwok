@@ -1,19 +1,23 @@
 package ai.tomorrow.miwok;
 
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
 public class ColorsActivity extends AppCompatActivity {
+    private MediaPlayer mPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
 
-        ArrayList<Word> colors = new ArrayList<Word>();
+        final ArrayList<Word> colors = new ArrayList<Word>();
         colors.add(new Word("red", "weṭeṭṭi", R.drawable.color_red, R.raw.color_red));
         colors.add(new Word("green", "chokokki", R.drawable.color_green, R.raw.color_green));
         colors.add(new Word("brown", "ṭakaakki", R.drawable.color_brown, R.raw.color_brown));
@@ -26,5 +30,14 @@ public class ColorsActivity extends AppCompatActivity {
         WordAdapter itemsAdapter = new WordAdapter(this, R.layout.list_item, colors, R.color.category_colors);
         ListView listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(itemsAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                mPlayer = MediaPlayer.create(ColorsActivity.this, colors.get(position).getAudioResourceId());
+                mPlayer.start();
+            }
+        });
+
     }
 }
