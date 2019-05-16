@@ -11,8 +11,13 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 public class NumbersActivity extends AppCompatActivity {
-
     private MediaPlayer mPlayer;
+    private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
+        @Override
+        public void onCompletion(MediaPlayer mp) {
+            releaseMediaPlayer();
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,12 +45,7 @@ public class NumbersActivity extends AppCompatActivity {
                 releaseMediaPlayer();
                 mPlayer = MediaPlayer.create(NumbersActivity.this, numbers.get(position).getAudioResourceId());
                 mPlayer.start();
-                mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                    @Override
-                    public void onCompletion(MediaPlayer mp) {
-                        releaseMediaPlayer();
-                    }
-                });
+                mPlayer.setOnCompletionListener(mCompletionListener);
             }
         });
 

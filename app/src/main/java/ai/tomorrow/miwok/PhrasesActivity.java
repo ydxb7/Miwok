@@ -12,6 +12,13 @@ import java.util.ArrayList;
 public class PhrasesActivity extends AppCompatActivity {
     private MediaPlayer mPlayer;
 
+    private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
+        @Override
+        public void onCompletion(MediaPlayer mp) {
+            releaseMediaPlayer();
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,12 +46,7 @@ public class PhrasesActivity extends AppCompatActivity {
                 releaseMediaPlayer();
                 mPlayer = MediaPlayer.create(PhrasesActivity.this, phrases.get(position).getAudioResourceId());
                 mPlayer.start();
-                mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                    @Override
-                    public void onCompletion(MediaPlayer mp) {
-                        releaseMediaPlayer();
-                    }
-                });
+                mPlayer.setOnCompletionListener(mCompletionListener);
             }
         });
     }
