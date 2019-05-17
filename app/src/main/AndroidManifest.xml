@@ -8,15 +8,39 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FamilyActivity"
-            android:label="@string/Family"/>
-        <activity android:name=".PhrasesActivity"
-            android:label="@string/Phrases"/>
-        <activity android:name=".ColorsActivity"
-            android:label="@string/Colors"/>
+        <activity
+            android:name=".FamilyActivity"
+            android:label="@string/Family">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".PhrasesActivity"
+            android:label="@string/Phrases">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".ColorsActivity"
+            android:label="@string/Colors">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
         <activity
             android:name=".NumbersActivity"
-            android:label="@string/Numbers" />
+            android:label="@string/Numbers">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
