@@ -1,5 +1,6 @@
 # Miwok
 This app is used to learn basic Android from Udacity course.
+
 ![image](https://raw.githubusercontent.com/ydxb7/Miwok/master/Show_Miwok.gif)
 
 - **Activities** - Learn Activities.
